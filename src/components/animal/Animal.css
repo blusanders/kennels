@@ -1,7 +1,9 @@
 .animals {
     display: flex;
     flex-wrap: wrap;
+    /* flex-direction: column; */
     justify-content: space-between;
+    /* border: 1px solid black; */
 }
 
 .animal {

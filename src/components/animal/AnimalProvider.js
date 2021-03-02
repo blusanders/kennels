@@ -8,7 +8,7 @@ export const AnimalProvider = (props) => {
     const [animals, setAnimals] = useState([])
 
     const getAnimals = () => {
-        return fetch("http://localhost:8088/animals?_expand=location")
+        return fetch("http://localhost:8088/animals")
         .then(res => res.json())
         .then(setAnimals)
     }
@@ -27,7 +27,7 @@ export const AnimalProvider = (props) => {
     /*
         You return a context provider which has the
         `animals` state, `getAnimals` function,
-        and the `addAnimal` function as keys. This
+        and the `addAnimal` function as keys. This                
         allows any child elements to access them.
     */
     return (
