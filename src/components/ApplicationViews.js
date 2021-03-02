@@ -47,7 +47,7 @@ return (
             <Route exact path="/locations">
                 <LocationList />
             </Route>
-            <Route path="/employees/create">
+            <Route path="/locations/create">
                 <LocationForm />
             </Route>
         </LocationProvider>

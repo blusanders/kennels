@@ -15,13 +15,18 @@ useEffect(() => {
 }, [])
 
 return (
-    <div className="customers">
-        {
-        customers.map(customer => {
-            return <CustomerCard key={customer.id} customer={customer} />
-        })
-        }
+  <div>
+    <div>
+      <h2>Customers</h2>
     </div>
-    )
+    <div className="customers">
+      {
+        customers.map(customer => {
+        return <CustomerCard key={customer.id} customer={customer} />
+      })
+      }
+    </div>
+    </div>
+  )
 }
 

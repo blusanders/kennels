@@ -19,24 +19,24 @@ const history = useHistory();
 
 return (
   <div>
-  <div>
-    <h2>Locations</h2>
-    <button
-      onClick={() => {
-        history.push("/locations/create");
-      }}
-    >
-      Add Location
-    </button>
-  </div>
-  <div className="locations">
-        {console.log("LocationList: Render", locations)}
-        {
-        locations.map(location => {
-            return <LocationCard key={location.id} location={location} />
-        })
-        }
+    <div>
+      <h2>Locations</h2>
+      <button
+        onClick={() => {
+          history.push("/locations/create");
+        }}
+      >
+        Add Location
+      </button>
     </div>
+    <div className="locations">
+          {console.log("LocationList: Render", locations)}
+          {
+          locations.map(location => {
+              return <LocationCard key={location.id} location={location} />
+          })
+          }
+      </div>
     </div>
   )
 }
