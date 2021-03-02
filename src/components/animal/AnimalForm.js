@@ -6,11 +6,11 @@ import "./Animal.css";
 import { useHistory } from "react-router-dom";
 
 export const AnimalForm = () => {
-  const { addAnimal } = useContext(AnimalContext);
-  const { locations, getLocations } = useContext(LocationContext);
-  const { customers, getCustomers } = useContext(CustomerContext);
+    const { addAnimal } = useContext(AnimalContext);
+    const { locations, getLocations } = useContext(LocationContext);
+    const { customers, getCustomers } = useContext(CustomerContext);
 
-  /*
+    /*
     With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
 
     Define the intial state of the form inputs with useState()
@@ -23,35 +23,39 @@ export const AnimalForm = () => {
         customerId: 0,
     });
 
-  const history = useHistory();
+    const history = useHistory();
 
-  /*
+    /*
     Reach out to the world and get customers state
     and locations state on initialization, so we can provide their data in the form dropdowns
     */
-  useEffect(() => {
-    getCustomers().then(getLocations);
-  }, []);
+    useEffect(() => {
+        getCustomers().then(getLocations);
+    }, []);
 
-  //when a field changes, update state. The return will re-render and display based on the values in state
-  // NOTE! What's happening in this function can be very difficult to grasp. Read it over many times and ask a lot questions about it.
-  //Controlled component
-  const handleControlledInputChange = (event) => {
-    /* When changing a state object or array,
+    //when a field changes, update state. The return will re-render and display based on the values in state
+    // NOTE! What's happening in this function can be very difficult to grasp. Read it over many times and ask a lot questions about it.
+    //Controlled component
+    const handleControlledInputChange = (event) => {
+        
+        /* When changing a state object or array,
         always create a copy, make changes, and then set state.*/
-    const newAnimal = { ...animal };
-    let selectedVal = event.target.value;
-    // forms always provide values as strings. But we want to save the ids as numbers. This will cover both customer and location ids
-    if (event.target.id.includes("Id")) {
-      selectedVal = parseInt(selectedVal);
-    }
-    /* Animal is an object with properties.
+        const newAnimal = { ...animal };
+        let selectedVal = event.target.value;
+
+        // forms always provide values as strings. But we want to save the ids as numbers. This will cover both customer and location ids
+        if (event.target.id.includes("Id")) {
+            selectedVal = parseInt(selectedVal);
+        }
+        
+        /* Animal is an object with properties.
         Set the property to the new value
         using object bracket notation. */
-    newAnimal[event.target.id] = selectedVal;
-    // update state
-    setAnimal(newAnimal);
-  };
+        newAnimal[event.target.id] = selectedVal;
+        
+        // update state
+        setAnimal(newAnimal);
+    };
 
   const handleClickSaveAnimal = (event) => {
     event.preventDefault(); //Prevents the browser from submitting the form
