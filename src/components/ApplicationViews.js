@@ -30,7 +30,7 @@ return (
         <AnimalProvider>
             <LocationProvider>
                 <CustomerProvider>
-                    {/* Note the addition of "exact" now that we have an additional route with "/animals" in it below this Route: "/animals/create" */}
+                    
                     <Route exact path="/animals">
                         <AnimalList />
                     </Route>
@@ -38,6 +38,7 @@ return (
                     <Route path="/animals/create">
                         <AnimalForm />
                     </Route>
+                    
                 </CustomerProvider>
             </LocationProvider>
         </AnimalProvider>
