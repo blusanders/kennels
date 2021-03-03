@@ -7,27 +7,27 @@ import { Register } from "./auth/Register";
 import "./Kennel.css";
 
 export const Kennel = () => (
-  <>
+    <>
     <Route
-      render={() => {
+        render={() => {
         if (localStorage.getItem("kennel_customer")) {
-          return (
+            return (
             <>
-              <NavBar />
-              <ApplicationViews />
+                <NavBar />
+                <ApplicationViews />
             </>
-          );
+            );
         } else {
-          return <Redirect to="/login" />;
+            return <Redirect to="/login" />;
         }
-      }}
+        }}
     />
 
     <Route path="/login">
-      <Login />
+        <Login />
     </Route>
     <Route path="/register">
-      <Register />
+        <Register />
     </Route>
-  </>
+    </>
 );
